@@ -1,24 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Card from "./card.js";
 function App() {
+  const itens = [
+    {titulo:"joao", desc:"sou um arquiteto", classf:4},
+    {titulo:"rafael", desc:"eu sei voar", classf:2},
+    {titulo:"gabriel", desc:"sou o gabigol", classf:5},
+    {titulo:"ananias", desc:"sou meio arquiteto", classf:4},
+    {titulo:"jeova", desc:"sou dois arquitetos", classf:3}];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+
+      {itens.map((item) => (<Card titulo={item.titulo} descricao={item.desc} classificacao={item.classf}/>))}
+
+      </div>
   );
 }
 
