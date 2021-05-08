@@ -1,0 +1,64 @@
+/*!
+ * Bootstrap-select v1.13.1 (https://developer.snapappointments.com/bootstrap-select)
+ *
+ * Copyright 2012-2018 SnapAppointments, LLC
+ * Licensed under MIT (https://github.com/snapappointments/bootstrap-select/blob/master/LICENSE)
+ */
+ 
+ .bootstrap-select > .dropdown-toggle {
+   position: relative;
+   width:1080px;
+   z-index: 1;
+   text-align: right;
+   white-space: nowrap;
+   height: 55px;
+   border-radius: 0px;
+   color:#818181;
+   font-family: Arial;
+   font-size: 20px;
+   font-weight: bold;
+   border: 0px;
+ }
+
+ .bootstrap-select > select {
+   position: absolute !important;
+   bottom: 0;
+   left: 50%;
+   display: block !important;
+   width: 0.5px !important;
+   height: 100% !important;
+   padding: 0 !important;
+   opacity: 0 !important;
+   border: none;
+ }
+ 
+ .bootstrap-select .dropdown-toggle .filter-option {
+   position: absolute;
+   top: 0;
+   left: 0;
+   padding-top: inherit;
+   padding-right: inherit;
+   padding-bottom: inherit;
+   padding-left: inherit;
+   height: 100%;
+   width: 100%;
+   text-align: center;
+ }
+ 
+ .bootstrap-select .dropdown-menu {
+   min-width: 100%;
+   border-radius: 0px;
+ }
+ 
+ .bootstrap-select .dropdown-menu.inner {
+   position: static;
+   float: none;
+   border: none;
+   padding: 0;
+   margin: 0;
+   border-radius: 0px;
+   -webkit-box-shadow: none;
+           box-shadow: none;
+ }
+ 
+ /*# sourceMappingURL=bootstrap-select.css.map */

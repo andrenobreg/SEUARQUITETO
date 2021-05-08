@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.botaobuscaprincipal{
+  opacity: 0.8;
+}
+
+.botaobuscaprincipal:hover{
+  opacity: 1;
+}
