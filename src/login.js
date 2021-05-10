@@ -3,17 +3,17 @@ import './css/index.css';
 import Header from './header.js';
 import Footer from './footer.js';
 import Card from './card.js';
-
+import Database from './database.js'
 class Login extends React.Component {
     render(){
-        
+        let teste = Database().teste2;
         
     
         return (
-            <div className="Cadastro">
+            <div>
                 <html>
                     <Header/>
-                    login
+                    {teste}
                     <Footer/>
                 </html>
             </div>
