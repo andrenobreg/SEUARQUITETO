@@ -1,19 +1,27 @@
-import React from 'react';
-import './css/index.css';
+import React, { Component } from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
 
-
-function Cadastro() {
-    return (
-    <div className="Cadastro">
+   
+class Login extends React.Component {
+  constructor(props){
+      super(props);
+      this.state ={
+          
+      }
+  }
+  
+  render(){
+      
+      return (
+        <div className="Home">
         <html>
             <Header/>
             cadastro
             <Footer/>
         </html>
     </div>
-    );
+      )    
+  }
 }
-
-export default Cadastro;
+export default Login;

@@ -1,32 +1,27 @@
-import React from 'react';
-import './css/index.css';
+import React, { Component } from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
-import Card from './card.js';
-import Database from './database.js'
+
+   
 class Login extends React.Component {
-    render(){
-        let teste = Database().teste2;
-        
-    
-        return (
-            <div>
-                <html>
-                    <Header/>
-                    {teste}
-                    <Footer/>
-                </html>
-            </div>
-        )    
-    }
+  constructor(props){
+      super(props);
+      this.state ={
+          
+      }
+  }
+  
+  render(){
+      
+      return (
+        <div className="Home">
+        <html>
+            <Header/>
+            login
+            <Footer/>
+        </html>
+    </div>
+      )    
+  }
 }
-
-
-
 export default Login;
-
-/* FOR CORRETO
-
-for(let i=0; i<posicao.length; i++){Card(dados[posicao[i]].img, dados[posicao[i]].titulo, dados[posicao[i]].desc, dados[posicao[i]].classif)}
-
-*/
