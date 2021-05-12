@@ -15,12 +15,14 @@ class Busca extends React.Component {
         super(props);
         this.state ={
             baseusuarios: Database().baseusuarios,
+            cidade: "BRASIL",
         }
     }
 
-    
+    handleCallback = (childData) =>{
+      this.setState({cidade: childData})
+    }
     render(){
-
         function filterFunction() {
             var input, filter, a, i, txtValue;
             input = document.getElementById("entradabusca");
@@ -35,7 +37,17 @@ class Busca extends React.Component {
               }
             }
         }
-              
+
+        function filtroCidade(valor,cidade){
+          if(cidade=="BRASIL"){
+            return <a className="resultados" id={valor}>       {Card(valor.img, valor.titulo, valor.desc, valor.classif)}       </a>
+          }else{
+            if(cidade==valor.cidade){
+              return <a className="resultados" id={valor}>       {Card(valor.img, valor.titulo, valor.desc, valor.classif)}       </a>
+            }
+          }
+        }
+        
         return (
             <div>
         <html>
@@ -50,9 +62,9 @@ class Busca extends React.Component {
                     <input type="text"  placeholder="BUSCAR..."  id="entradabusca" onKeyUp={filterFunction} style={{backgroundColor: "#bbbbbb", height: "50px", width: "900px", fontSize: "20px", fontFamily: "Arial", fontWeight: "bold", color: "#838383", border: "0", boxShadow:"0", outline: "0"}}/>
                 </div>
             </div>
-                <Barracidades/>
+                <Barracidades parentCallback = {this.handleCallback}/>
                     <div style={{backgroundColor: "#bbbbbb", width: "1080px", display: "block", textDecoration: "none", height: "760px", overflow: "auto"}}>
-                    {this.state.baseusuarios.map((valor) => (<a className="resultados" id={valor}>{Card(valor.img, valor.titulo, valor.desc, valor.classif)}</a>))}
+                    {this.state.baseusuarios.map(        (valor) =>                     (filtroCidade(valor, this.state.cidade))                 )                        }
                     </div>
                 </main>
             </body>

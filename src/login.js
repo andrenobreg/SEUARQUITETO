@@ -14,7 +14,7 @@ class Login extends React.Component {
   render(){
       
       return (
-        <div className="Home">
+        <div>
         <html>
             <Header/>
             login
