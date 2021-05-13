@@ -37,7 +37,7 @@ class Barracidades extends React.Component {
       return (
         <div>
         <div class="dropdown">
-            <button onClick = {() => {myFunction();                   {if(this.state.seta==setabaixo){this.setState({seta:setacima});}else {if(this.state.seta==setacima){this.setState({seta:setabaixo});}}};}} class="dropbtn">{this.state.cidade}<img src={this.state.seta} style={{float: "right", marginTop: "5px"}}/></button>
+            <button onClick = {() => {myFunction();                   {if(this.state.seta==setabaixo){this.setState({seta:setacima});}else {if(this.state.seta==setacima){this.setState({seta:setabaixo});}}};}} class="dropbtn">{this.state.cidade}<img src={this.state.seta} style={{float: "right", marginTop: "2px", marginRight:"4px"}}/></button>
             <div id="myDropdown" class="dropdown-content">
                 <input type="text" placeholder="PROCURE UMA CIDADE..." id="myInput" onKeyUp={filterFunction}/>
                 {this.state.basecidades.map((valor) => (<a class="opcoes" onClick = {(event) => {this.setState({cidade:valor}); this.setState({seta:setabaixo}); myFunction(); this.props.parentCallback(valor);}} id={valor}>{valor}</a>))}

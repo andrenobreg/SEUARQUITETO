@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/botoes.css';
-import lupa from './img/lupa.png'
+import lupa from './img/lupa30px.png'
 
 const Buscaarquiteto = () => {
     return (
             <div class = "botaobuscaprincipal">
-                <div style={{padding: "8px", float: "left", marginBottom: "1px"}}>
+                <div style={{padding: "0px", float: "left", marginBottom: "0px", marginTop:"3px", marginLeft:"5px", marginRight:"3px"}}>
                     <img src={lupa}/>
                 </div>
                 <div>

@@ -2,12 +2,12 @@
 .dropbtn {
     background-color: #949494;
     color: #444444;
-    padding: 16px;
-    font-size: 20px;
+    padding: 0px;
+    font-size: 16px;
     border: none;
     cursor: pointer;
     width: 1080px;
-    height: 55px;
+    height: 25px;
     font-family: Arial;
     font-weight: bold;
     transition: all 0.3s ease;

@@ -1,6 +1,6 @@
 .botaobuscaprincipal{
     background-color: #bbbbbb;
-    height: 55px;
+    height: 40px;
     width: 1080px;
     display: flex;
     text-decoration: none;
@@ -20,7 +20,7 @@
   }
   
   .botaocadastro{
-    height: 55px;
+    height: 30px;
     width: 530px;
     background-color: hsl(0, 0%, 51%);
     float: left;
@@ -28,7 +28,7 @@
     justify-content: center;
     transition: all 0.3s ease;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 16px;
     font-family: Arial;
     font-weight: bold;
     color: #252525;
@@ -44,7 +44,7 @@
     opacity: 1;
   }
   .botaologin{
-    height: 55px;
+    height: 30px;
     width: 530px;
     background-color: #818181;
     float: right;
@@ -52,7 +52,7 @@
     justify-content: center;
     transition: all 0.3s ease;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 16px;
     font-family: Arial;
     font-weight: bold;
     color: #252525;

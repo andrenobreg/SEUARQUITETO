@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 const Footer = () => {
     return (
-        <footer style={{width: "100%", height: "55px", backgroundColor: "#818181", position:"absolute", bottom: "0"}}>
+        <footer style={{width: "100%", height: "35px", backgroundColor: "#818181", position:"absolute", bottom: "0"}}>
         </footer>
     )
 }
