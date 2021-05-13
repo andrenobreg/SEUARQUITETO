@@ -9,7 +9,7 @@ import { render } from '@testing-library/react';
 import Database from './database.js';
 import lupa from './img/lupapq.png';
 import './css/busca.css';
-
+import {Link} from 'react-router-dom';
 class Busca extends React.Component {
     constructor(props){
         super(props);
@@ -40,10 +40,10 @@ class Busca extends React.Component {
 
         function filtroCidade(valor,cidade){
           if(cidade=="BRASIL"){
-            return <a className="resultados" id={valor}>       {Card(valor.img, valor.titulo, valor.desc, valor.classif)}       </a>
+            return <Link to="/exibirperfil"><a className="resultados" id={valor}>       {Card(valor.img, valor.titulo, valor.desc, valor.classif)}       </a></Link>
           }else{
             if(cidade==valor.cidade){
-              return <a className="resultados" id={valor}>       {Card(valor.img, valor.titulo, valor.desc, valor.classif)}       </a>
+              return <Link to="/exibirperfil"><a className="resultados" id={valor}>       {Card(valor.img, valor.titulo, valor.desc, valor.classif)}       </a></Link>
             }
           }
         }

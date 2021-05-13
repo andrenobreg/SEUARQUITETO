@@ -13,19 +13,23 @@ function Home() {
     <div className="Home">
         <html>
             <Header/>
-            <body style={{width: "100%", height: "100%", margin: "0 auto", top:"0", left: "0"}}>
-                <main style={{margin: "0 auto", position: "relative", width: "1080px"}}>
-                    <div style={{marginTop: "28%"}}>
-                        <img src={logo}/>
-                    </div>
-                
-                    <div>
-                        <Link to="/busca" style={{textDecoration: "none"}}><Buscaarquiteto/></Link>
-                    </div>
-                    <div>
-                        <Link to="/cadastro"><Botaocadastro/></Link>
-                        <Link to="/login"><Botaologin/></Link>
-                    </div>         
+            <body>
+                <main>
+                    
+                        <div style={{width:"1080px", left:"50%", position:"absolute", marginLeft:"-540px", top:"50%", marginTop:"-110px"}} >
+                            <div>
+                                <img src={logo}/>
+                            </div>
+                        
+                            <div>
+                                <Link to="/busca" style={{textDecoration: "none"}}><Buscaarquiteto/></Link>
+                            </div>
+                            <div>
+                                <Link to="/cadastro"><Botaocadastro/></Link>
+                                <Link to="/login"><Botaologin/></Link>
+                            </div> 
+                        </div>
+                    
                 </main>
             </body>
             <Footer/>

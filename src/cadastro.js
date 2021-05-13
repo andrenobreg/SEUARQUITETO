@@ -5,6 +5,8 @@ import imagemcadastro from './img/logo80px.png';
 import botoes from './css/botoes.css';
 import Barracidades from './barracidades.js';
 import Inputcidadescadastro from './inputcidadescadastro.js';
+import {Link} from 'react-router-dom';
+import Botaoproxima from './botaoproxima.js';
 
    
 class Cadastro extends React.Component {
@@ -25,13 +27,12 @@ class Cadastro extends React.Component {
         <div>
         <html>
             <Header/>
-            <body style={{width:"100%", height:"100%", margin:"0 auto", top:"0", left:"0", display:"flex"}}>
-            <main style={{margin: "0 auto", position:"relative", width:"635px", height:"100%", display:"flex"}}>
-            
-                <div class ="imagemcadastro" style={{marginTop:"110px", alignItems:"center", textAlign:"center", justifyContent:"center"}}>
+            <body>
+                <main>
+                <div style={{left:"50%", marginLeft:"-318px", position:"absolute", top:"50%", marginTop:"-300px"}}>
                     <img src={imagemcadastro}/>
                     
-                    <div class="corpo" style={{marginRight:"11px"}}>
+                    <div style={{marginRight:"11px"}}>
                         <div class="ladoesquerdo" style={{display:"inline-block", float:"left", width:"49%", marginTop:"14px"}}>
                             <ul style={{float: "right", textAlign:"right", marginRight:"7%", fontFamily:"Arial", fontSize:"16px", fontWeight:"bold", color:"#676767", listStyle:"none", marginTop:"66px"}}>
                                 <li id="nome">NOME</li>
@@ -64,10 +65,9 @@ class Cadastro extends React.Component {
                         </div>
                     
                     </div>
-                    <a href="" class="proxima" style={{width:"200px", height:"30px", backgroundColor:"#818181", fontSize:"16px", fontFamily:"Arial", fontWeight:"bold", color:"#ffffff", alignItems:"center", textAlign:"center", justifyContent:"center", display:"flex", marginLeft:"210px", marginTop:"28px", transition:"all 0.3s ease", textDecoration:"none"}}>PRÓXIMA</a>
+                    <div style={{width:"200px", left:"50%", marginLeft:"-105px", position: "absolute", marginTop:"10px"}} ><Link to="/upimagens"><Botaoproxima/></Link></div>
                 
                 </div>
-            
             </main>
             </body>
             <Footer/>

@@ -20,10 +20,10 @@ class Login extends React.Component {
         <div>
         <html>
             <Header/>
-            <body style={{width:"100%", height:"100%", margin:"0 auto", top:"0", left:"0", display:"flex"}}>
-            <main style={{margin: "0 auto", position:"relative", width:"635px", height:"100%", display:"flex"}}>
+            <body>
+            <main>
             
-                <div class ="imagemcadastro" style={{marginTop:"300px", alignItems:"center", textAlign:"center", justifyContent:"center"}}>
+                <div style={{width:"635px", position: "absolute", left:"50%", marginLeft:"-318px", top:"50%", marginTop:"-130px"}}>
                     <img src={imagemcadastro}/>
                     
                     <div class="corpo" style={{marginRight:"11px"}}>

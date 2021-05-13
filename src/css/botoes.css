@@ -36,6 +36,68 @@
     margin: auto;
     margin-Top: 10px;
   }
+
+  .botaoproxima{
+    height: 30px;
+    width: 200px;
+    background-color: hsl(0, 0%, 51%);
+    float: left;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    color: #252525;
+    align-items: center;
+    margin: auto;
+    margin-Top: 0px;
+    opacity: 0.8;
+  }
+
+  .botaoupimagens{
+    height: 30px;
+    width: 635px;
+    background-color: hsl(0, 0%, 51%);
+    float: left;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    color: #252525;
+    align-items: center;
+    margin: auto;
+    margin-Top: 0px;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  .botaoconcluir{
+    height: 30px;
+    width: 200px;
+    background-color: hsl(0, 0%, 51%);
+    float: left;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    color: #252525;
+    align-items: center;
+    margin: auto;
+    margin-Top: 0px;
+    opacity: 0.8;
+  }
+
+  .botaoproxima:hover{
+    opacity: 1;
+  }
   
   .botaocadastro{
     opacity: 0.8;
@@ -75,4 +137,8 @@
 
 .proxima:hover{
   opacity:1;
+}
+
+.botaoup{
+  display:none;
 }
