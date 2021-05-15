@@ -2,6 +2,10 @@ import React from 'react';
 
 function Database () {
     let valor = {
+        basecomentarios: [
+            {comentarios: [{nome: "joao", comentario: "legal", avaliacao: 5}, {nome: "maria", comentario: "muito bom", avaliacao: 5}, {nome: "carlos", comentario: "mais ou menos", avaliacao: 3} ]}
+        
+        ],
         baseusuarios: [
             {img:"link", titulo:"Mario Fernandes Arquiteto (0)", desc:"sou um arquiteto de FORTALEZA", classif:4, cidade:"FORTALEZA"},
             {img:"link", titulo:"Antunes Arquitetura(1)", desc:"sou um arquiteto de MANAUS", classif:4, cidade:"MANAUS"},
@@ -90,6 +94,8 @@ function Database () {
         "CURITIBA","FLORIANÓPOLIS","FORTALEZA","GOIÂNIA","JOÃO PESSOA","MACAPÁ","MACEIÓ","MANAUS","NATAL",
         "PALMAS","PORTO ALEGRE","PORTO VELHO","RECIFE","RIO BRANCO","RIO DE JANEIRO","SALVADOR","SÃO LUÍS",
         "SÃO PAULO","TERESINA","VITÓRIA"],
+
+        comentarios: [{nome: "fulano", comentario:"muito bom!", avaliacao:5}],
     }
     return valor;
 }

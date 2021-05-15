@@ -7,6 +7,7 @@ import Login from './login.js';
 import Upimagens from './upimagens.js';
 import Cadastroconcluido from './cadastroconcluido.js';
 import Exibirperfil from './exibirperfil.js';
+import Teste from './teste.js';
 
 function Routes(){
        return(
@@ -20,6 +21,7 @@ function Routes(){
                             <Route path="/upimagens" component={Upimagens}/>;
                             <Route path="/concluido" component={Cadastroconcluido}/>;
                             <Route path="/exibirperfil" component={Exibirperfil}/>;
+                            <Route path="/teste" component={Teste}/>
                      </Switch>
               </BrowserRouter>
 
