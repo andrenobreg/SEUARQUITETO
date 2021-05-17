@@ -10,6 +10,8 @@ import Database from './database.js';
 import lupa from './img/lupapq.png';
 import './css/busca.css';
 import Cardcomentario from './cardcomentario.js';
+import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
+import { useParams } from 'react-router';
 
 class Exibirperfil extends React.Component {
     constructor(props){
@@ -17,14 +19,37 @@ class Exibirperfil extends React.Component {
         this.state ={
             baseusuarios: Database().baseusuarios,
             basecomentarios: Database().basecomentarios,
-            posicao: 0,
-            teste: "lalala",
+            nome: "",
+            comentario: "",
+            avaliacao: "",
+            posicao: this.props.match.params.id, // posicao do arquiteto a ser exibido no vetor
         }
     }
-    render(){
-        
-        function inserirComentario(){
+    
+
+    inserirCom(){
+        let i = this.state.basecomentarios[this.state.posicao].comentarios.length;
+        i = i+1;
+        if(this.state.nome==""){
+            alert("Preencher nome!");
+            //ADD MÉTODO PARA IGNORAR ESPAÇOS
+        }else{
+           if(this.state.comentario==""){
+                alert("Escrever comentário!");
+                //ADD MÉTODO PARA IGNORAR ESPAÇOS
+           }else{
+            this.state.basecomentarios[this.state.posicao].comentarios[i] = {nome: this.state.nome, comentario: this.state.comentario, avaliacao:4};
+            this.setState({nome: this.state.nome})
+            this.setState({comentario: this.state.comentario}) 
+            alert("Obrigado pelo comentário!");
+           }
         }
+        
+  
+      } 
+
+    render(){
+    
         return (
             <div>
         <html>
@@ -38,27 +63,32 @@ class Exibirperfil extends React.Component {
                         IMAGENS
                         </div>
                         
-                        <div style={{width:"1040px", height:"120px", marginLeft:"12px", marginTop:"12px", backgroundColor:"#f2f2f2"}}>
-                        CONTATOS
+                        <div style={{width:"1040px", height:"120px", marginLeft:"12px", marginTop:"12px", backgroundColor:"#f2f2f2", display:"flex", alignItems:"center", justifyContent:"center"}}>
+                            <div>
+                            <div style={{height:"25px", marginTop:"0px", fontFamily:"Arial", fontWeight:"bold", fontSize:"20px"}}>{this.state.baseusuarios[this.state.posicao].site}</div>
+                            <div style={{height:"25px", marginTop:"5px", fontFamily:"Arial", fontWeight:"bold", fontSize:"20px"}}>{this.state.baseusuarios[this.state.posicao].instagram}</div>
+                            <div style={{height:"25px", marginTop:"5px", fontFamily:"Arial", fontWeight:"bold", fontSize:"20px"}}>{this.state.baseusuarios[this.state.posicao].telefone}</div>
+                            </div>
                         </div>
                         <div style={{width: "1040px", height: "65px", backgroundColor: "green", marginLeft: "12px", marginTop: "10px", display: "flex", textDecoration: "none"}}>
                             <div style={{display: "flex", textAlign: "left"}}>
                                 
                                 <div style={{width: "700px", height: "65px", backgroundColor:"cornflowerblue", marginTop: "0px", marginLeft: "0px", display: "block", textDecoration:"none"}}>
                                     <div style={{width: "690px", height: "25px", marginLeft: "5px", marginTop: "5px", backgroundColor: "darkgray", textDecoration: "none", fontFamily: "Arial", fontSize: "16px", fontWeight: "bold", color: "black"}}>
-                                    <input type="text" id="input1"  placeholder="SEU NOME..." style={{marginTop:"0px", backgroundColor:"#cecece", fontSize:"16px", fontFamily:"Arial", fontWeight:"bold", color:"#838383", border:"0", boxShadow:"0", outline:"0", width:"685px", height:"23px", float:"left", marginLeft:"0px"}}/>
+                                    <input type="text" onChange={(event) => (this.setState({nome:event.target.value}))} id="input1"  placeholder="SEU NOME..." style={{marginTop:"0px", backgroundColor:"#cecece", fontSize:"16px", fontFamily:"Arial", fontWeight:"bold", color:"#838383", border:"0", boxShadow:"0", outline:"0", width:"685px", height:"23px", float:"left", marginLeft:"0px"}}/>
                                     </div>
                                     <div style={{width: "690px", height: "25px", marginLeft: "5px", marginTop: "5px", backgroundColor: "darkgray", textDecoration:"none", fontFamily: "Arial", fontSize:"16px", color: "black"}}>
-                                    <input type="text" id="input2"  placeholder="DEIXE UM COMENTÁRIO..." style={{marginTop:"0px", backgroundColor:"#cecece", fontSize:"16px", fontFamily:"Arial", fontWeight:"bold", color:"#838383", border:"0", boxShadow:"0", outline:"0", width:"685px", height:"23px", float:"left", marginLeft:"0px"}}/>
-                                    <input type="submit" onClick={inserirComentario}/>
+                                    <input type="text" onChange={(event) => (this.setState({comentario:event.target.value}))} id="input2"  placeholder="DEIXE UM COMENTÁRIO..." style={{marginTop:"0px", backgroundColor:"#cecece", fontSize:"16px", fontFamily:"Arial", fontWeight:"bold", color:"#838383", border:"0", boxShadow:"0", outline:"0", width:"685px", height:"23px", float:"left", marginLeft:"0px"}}/>
                                     </div>
                                 </div>
-                                <div style={{width: "330px", height: "55px", backgroundColor: "darkgoldenrod", marginTop:"5px", marginLeft: "5px", textDecoration: "none"}}>
+                                <div style={{width: "270px", height: "55px", backgroundColor: "darkgoldenrod", marginTop:"5px", marginLeft: "5px", textDecoration: "none"}}>
                                     avaliação
+                                </div>
+                                <div onClick={(event) => {this.inserirCom()}} style={{cursor:"pointer", width: "55px", height: "55px", backgroundColor: "red", marginTop:"5px", marginLeft: "5px", textDecoration: "none"}}>
+                                    enviar
                                 </div>
                             </div>
                         </div>
-                        {this.state.teste}
                         {this.state.basecomentarios[this.state.posicao].comentarios.map((valor) => (Cardcomentario(valor.nome, valor.comentario, valor.avaliacao)) )}
                     </div>
                 

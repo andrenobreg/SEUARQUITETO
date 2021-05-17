@@ -20,7 +20,7 @@ function Routes(){
                             <Route path="/login" component={Login}/>;
                             <Route path="/upimagens" component={Upimagens}/>;
                             <Route path="/concluido" component={Cadastroconcluido}/>;
-                            <Route path="/exibirperfil" component={Exibirperfil}/>;
+                            <Route path="/exibirperfil/:id" component={Exibirperfil}/>;
                             <Route path="/teste" component={Teste}/>
                      </Switch>
               </BrowserRouter>
