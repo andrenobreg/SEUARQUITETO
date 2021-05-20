@@ -12,7 +12,7 @@ import './css/busca.css';
 import Cardcomentario from './cardcomentario.js';
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import { useParams } from 'react-router';
-
+import Slider from './slider.js';
 class Exibirperfil extends React.Component {
     constructor(props){
         super(props);
@@ -50,17 +50,31 @@ class Exibirperfil extends React.Component {
 
     render(){
     
-        return (
+        return ( //this.state.baseusuarios[this.state.posicao].titulo
             <div>
         <html>
             <Header/>
             <body>
                 <main>
                     <div style={{width:"1080px", height:"910px", backgroundColor:"#bbbbbb", position:"absolute", left:"50%", marginLeft:"-540px", overflow:"auto"}}>
-                    
-                        {Card(this.state.baseusuarios[this.state.posicao].img, this.state.baseusuarios[this.state.posicao].titulo, this.state.baseusuarios[this.state.posicao].desc, this.state.baseusuarios[this.state.posicao].classif)}
+                    <div style={{width: "1040px", height: "150px", backgroundColor: "green", marginLeft: "12px", marginTop: "10px", display: "flex", textDecoration: "none"}}>
+                        <div style={{display: "flex", textAlign: "left"}}>
+            
+                                <div style={{width: "955px", height: "140px", backgroundColor:"cornflowerblue", marginTop: "5px", marginLeft: "5px", display: "block", textDecoration:"none"}}>
+                                    <div style={{width: "945px", height: "30px", marginLeft: "5px", marginTop: "5px", backgroundColor: "darkgray", textDecoration: "none", fontFamily: "Arial", fontSize: "20px", fontWeight: "bold", color: "black"}}>
+                                        {this.state.baseusuarios[this.state.posicao].titulo}
+                                    </div>
+                                    <div style={{width: "945px", height: "95px", marginLeft: "5px", marginTop: "5px", backgroundColor: "darkgray", textDecoration:"none", fontFamily: "Arial", fontSize:"15px", color: "black"}}>
+                                        {this.state.baseusuarios[this.state.posicao].desc}
+                                    </div>
+                                </div>
+                                <div style={{width: "70px", height: "140px", backgroundColor: "darkgoldenrod", marginTop:"5px", marginLeft: "5px", textDecoration: "none"}}>
+                                    {this.state.baseusuarios[this.state.posicao].classif}
+                                </div>
+                            </div>
+                        </div>
                         <div style={{width:"1040px", height:"595px", marginLeft:"12px", marginTop:"12px", backgroundColor:"#f2f2f2"}}>
-                        IMAGENS
+                        <Slider width="1040px" height="595px"/>
                         </div>
                         
                         <div style={{width:"1040px", height:"120px", marginLeft:"12px", marginTop:"12px", backgroundColor:"#f2f2f2", display:"flex", alignItems:"center", justifyContent:"center"}}>

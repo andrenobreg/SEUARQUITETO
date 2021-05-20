@@ -10,6 +10,7 @@ import Botaoupimagens from './botaoupimagens.js';
 import './css/botoes.css';
 import {Link} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
+import Uploader from './uploader.js';
    
 class Upimagens extends React.Component {
   constructor(props){
@@ -29,12 +30,11 @@ class Upimagens extends React.Component {
                 <div style={{width:"635px", position:"absolute", left:"50%", marginLeft:"-318px", top:"50%", marginTop:"-232px"}}>
                     <img src={imagemcadastro}/>
                     
-                    <div style={{backgroundColor:"#d7d7d7", width:"635px", height:"340px"}}>
-                        upimagens
+                    <div style={{backgroundColor:"#d7d7d7", width:"635px", height:"340px", overflow:"auto"}}>
+                        <Uploader/>
                     </div>
 
-                    <label class="botaoupimagens" for="botaoup" style={{marginTop:"10px"}}>INCLUIR IMAGENS</label>
-                    <input type="file" href="" id="botaoup" class="botaoup" accept="image/jpeg, image/png" multiple/>
+                    
                     
                     <Link to="/concluido"><div style={{position:"absolute", left:"50%", marginLeft:"-100px", marginTop:"50px"}}><Botaoconcluir/></div></Link>
                 

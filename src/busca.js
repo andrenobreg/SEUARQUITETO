@@ -41,10 +41,10 @@ class Busca extends React.Component {
 
         function filtroCidade(valor,cidade, id){
           if(cidade=="BRASIL"){
-            return <Link to={"/exibirperfil/"+id}><a className="resultados">       {Card(valor.img, valor.titulo, valor.desc, valor.classif)}       </a></Link>
+            return <a className="resultados">       {Card(valor.img, valor.titulo, valor.desc, valor.classif, id)}       </a>
           }else{
             if(cidade==valor.cidade){
-              return <Link to={"/exibirperfil/"+id}><a className="resultados">       {Card(valor.img, valor.titulo, valor.desc, valor.classif)}       </a></Link>
+              return <a className="resultados">       {Card(valor.img, valor.titulo, valor.desc, valor.classif, id)}       </a>
             }
           }
         }
@@ -64,7 +64,7 @@ class Busca extends React.Component {
                 </div>
             </div>
                 <Barracidades parentCallback = {this.handleCallback}/>
-                    <div style={{backgroundColor: "#bbbbbb", width: "1080px", display: "block", textDecoration: "none", height: "880px", overflow: "auto"}}>
+                    <div style={{backgroundColor: "#f4f4f4", width: "1080px", display: "block", textDecoration: "none", height: "880px", overflow: "auto"}}>
                     {this.state.baseusuarios.map(        (valor) =>                     (filtroCidade(valor, this.state.cidade, this.state.baseusuarios.indexOf(valor)))                 )                        }
                     </div>
                 </main>
