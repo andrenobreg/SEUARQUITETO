@@ -4,9 +4,8 @@ import Header from './header.js';
 import Footer from './footer.js';
 import logo from './img/logo.png';
 import Buscaarquiteto from './botaobuscaarquiteto.js';
-import Botaocadastro from './botaocadastro.js';
-import Botaologin from './botaologin.js';
 import {Link} from 'react-router-dom';
+import Botao from './botao.js';
 
 function Home() {
     return (
@@ -25,8 +24,8 @@ function Home() {
                                 <Link to="/busca" style={{textDecoration: "none"}}><Buscaarquiteto/></Link>
                             </div>
                             <div>
-                                <Link to="/cadastro"><Botaocadastro/></Link>
-                                <Link to="/login"><Botaologin/></Link>
+                                <Link to="/cadastro"><Botao width="530px" height="30px" marginTop="10px" value="MOSTRE SEU TRABALHO!"/></Link>
+                                <Link to="/login"><Botao width="530px" height="30px" marginTop="10px" marginLeft="20px" value="LOG IN"/></Link>
                             </div> 
                         </div>
                     

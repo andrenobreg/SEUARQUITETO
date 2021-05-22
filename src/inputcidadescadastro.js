@@ -37,7 +37,7 @@ class Inputcidadescadastro extends React.Component {
       return (
         <div>
         <div class="dropdownc">
-            <button onClick = {() => {myFunction();                   {if(this.state.seta==setabaixo){this.setState({seta:setacima});}else {if(this.state.seta==setacima){this.setState({seta:setabaixo});}}};}} class="dropbtnc"><a style={{marginLeft:"20px"}} >{this.state.cidade}</a><img src={this.state.seta} style={{float: "right", marginTop: "0px", marginRight:"3px"}}/></button>
+            <button onClick = {() => {myFunction();                   {if(this.state.seta==setabaixo){this.setState({seta:setacima});}else {if(this.state.seta==setacima){this.setState({seta:setabaixo});}}};}} class="dropbtnc"><a style={{marginLeft:"20px"}} >{this.state.cidade}</a><img src={this.state.seta} style={{float: "right", marginTop: "4px", marginRight:"3px"}}/></button>
             <div id="myDropdownc" class="dropdown-contentc">
                 <input type="text" placeholder="PROCURE UMA CIDADE..." id="myInputc" onKeyUp={filterFunction}/>
                 {this.state.basecidades.map((valor) => (<a class="opcoes" onClick = {(event) => {this.setState({cidade:valor}); this.setState({seta:setabaixo}); myFunction(); this.props.parentCallback(valor);}} id={valor}>{valor}</a>))}

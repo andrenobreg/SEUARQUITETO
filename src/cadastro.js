@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
 import imagemcadastro from './img/logo80px.png';
-import botoes from './css/botoes.css';
-import Barracidades from './barracidades.js';
 import Inputcidadescadastro from './inputcidadescadastro.js';
 import {Link} from 'react-router-dom';
-import Botaoproxima from './botaoproxima.js';
-
+import Botao from './botao.js';
    
 class Cadastro extends React.Component {
   constructor(props){
@@ -34,16 +31,16 @@ class Cadastro extends React.Component {
                     
                     <div style={{marginRight:"11px"}}>
                         <div class="ladoesquerdo" style={{display:"inline-block", float:"left", width:"49%", marginTop:"14px"}}>
-                            <ul style={{float: "right", textAlign:"right", marginRight:"7%", fontFamily:"Arial", fontSize:"16px", fontWeight:"bold", color:"#676767", listStyle:"none", marginTop:"66px"}}>
+                            <ul style={{float: "right", textAlign:"right", marginRight:"7%", fontFamily:"Arial", fontSize:"16px", fontWeight:"bold", color:"#676767", listStyle:"none", marginTop:"60px"}}>
                                 <li id="nome">NOME</li>
-                                <li id="descricao" style={{marginTop:"25px"}}>DESCRIÇÃO</li>
-                                <li id="descricao" style={{marginTop:"25px"}}>CIDADE</li>
-                                <li id="email" style={{marginTop:"25px"}}>EMAIL</li>
-                                <li id="telefone" style={{marginTop:"25px"}}>TELEFONE</li>
-                                <li id="site" style={{marginTop:"25px"}}>SITE</li>
-                                <li id="instagram" style={{marginTop:"25px"}}>INSTAGRAM</li>
-                                <li id="senha" style={{marginTop:"25px"}}>SENHA</li>
-                                <li id="confirmasenha" style={{marginTop:"25px"}}>CONFIRMAÇÃO DE SENHA</li>
+                                <li id="descricao" style={{marginTop:"16px"}}>DESCRIÇÃO</li>
+                                <li id="cidade" style={{marginTop:"17px"}}>CIDADE</li>
+                                <li id="email" style={{marginTop:"16px"}}>EMAIL</li>
+                                <li id="telefone" style={{marginTop:"17px"}}>TELEFONE</li>
+                                <li id="site" style={{marginTop:"16px"}}>SITE</li>
+                                <li id="instagram" style={{marginTop:"17px"}}>INSTAGRAM</li>
+                                <li id="senha" style={{marginTop:"16px"}}>SENHA</li>
+                                <li id="confirmasenha" style={{marginTop:"16px"}}>CONFIRMAÇÃO DE SENHA</li>
                             </ul>
                         </div>    
 
@@ -65,7 +62,7 @@ class Cadastro extends React.Component {
                         </div>
                     
                     </div>
-                    <div style={{width:"200px", left:"50%", marginLeft:"-105px", position: "absolute", marginTop:"10px"}} ><Link to="/upimagens"><Botaoproxima/></Link></div>
+                    <div style={{width:"200px", left:"50%", marginLeft:"-105px", position: "absolute", marginTop:"10px"}} ><Link to="/upimagens"><Botao width="200px" height="30px" value="PRÓXIMA"/></Link></div>
                 
                 </div>
             </main>

@@ -13,6 +13,7 @@ class Slider extends React.Component {
         height: this.props.height,
         hasSizeButton : this.props.hasSizeButton,
         hasThumbnails: this.props.hasThumbnails,
+        onTap: this.props.onTap,
       }
   }
   
@@ -25,7 +26,7 @@ class Slider extends React.Component {
       
       return (
         <div style={{width:this.state.width, height:this.state.height}}>
-        <Carousel images={images} canAutoPlay = {false} hasIndexBoard={false} hasSizeButton={this.state.hasSizeButton} hasThumbnails={this.state.hasThumbnails}/>
+        <Carousel images={images} canAutoPlay = {false} hasIndexBoard={false} hasSizeButton={this.state.hasSizeButton} hasThumbnails={this.state.hasThumbnails} shouldLazyLoad={true} transitionDurationLimit={200} shouldSwipeOnMouse={true} onTap={this.state.onTap}/>
         </div>
       )    
   }

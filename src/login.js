@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
 import imagemcadastro from './img/logo80px.png';
-import botoes from './css/botoes.css';
-import Barracidades from './barracidades.js';
-import Inputcidadescadastro from './inputcidadescadastro.js';
 
    
 class Login extends React.Component {
@@ -28,9 +25,9 @@ class Login extends React.Component {
                     
                     <div class="corpo" style={{marginRight:"11px"}}>
                         <div class="ladoesquerdo" style={{display:"inline-block", float:"left", width:"49%", marginTop:"14px"}}>
-                            <ul style={{float: "right", textAlign:"right", marginRight:"7%", fontFamily:"Arial", fontSize:"16px", fontWeight:"bold", color:"#676767", listStyle:"none", marginTop:"22px"}}>
+                            <ul style={{float: "right", textAlign:"right", marginRight:"7%", fontFamily:"Arial", fontSize:"16px", fontWeight:"bold", color:"#676767", listStyle:"none", marginTop:"18px"}}>
                                 <li id="email">EMAIL</li>
-                                <li id="senha" style={{marginTop:"25px"}}>SENHA</li>
+                                <li id="senha" style={{marginTop:"15px"}}>SENHA</li>
                             </ul>
                         </div>    
 

@@ -5,10 +5,10 @@ import Cadastro from './cadastro.js';
 import Busca from './busca.js';
 import Login from './login.js';
 import Upimagens from './upimagens.js';
-import Cadastroconcluido from './cadastroconcluido.js';
+import Mensagem from './mensagem.js';
 import Exibirperfil from './exibirperfil.js';
 import Teste from './teste.js';
-
+import Editarperfil from './editarperfil.js';
 function Routes(){
        return(
        
@@ -19,9 +19,10 @@ function Routes(){
                             <Route path="/busca" component={Busca}/>;
                             <Route path="/login" component={Login}/>;
                             <Route path="/upimagens" component={Upimagens}/>;
-                            <Route path="/concluido" component={Cadastroconcluido}/>;
+                            <Route path="/Mensagem/:id" component={Mensagem}/>;
                             <Route path="/exibirperfil/:id" component={Exibirperfil}/>;
                             <Route path="/teste" component={Teste}/>
+                            <Route path="/editarperfil" component={Editarperfil}/>
                      </Switch>
               </BrowserRouter>
 

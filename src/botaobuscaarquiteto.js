@@ -6,7 +6,7 @@ import lupa from './img/lupa30px.png'
 const Buscaarquiteto = () => {
     return (
             <div class = "botaobuscaprincipal">
-                <div style={{padding: "0px", float: "left", marginBottom: "0px", marginTop:"3px", marginLeft:"5px", marginRight:"3px"}}>
+                <div style={{float: "left", marginBottom: "1px", marginTop:"0px", marginLeft:"5px", marginRight:"3px"}}>
                     <img src={lupa}/>
                 </div>
                 <div>

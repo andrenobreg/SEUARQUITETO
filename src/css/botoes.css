@@ -10,135 +10,30 @@
     color: #838383;
     align-items: center;
     transition: all 0.3s ease;
-}
-.botaobuscaprincipal{
-    opacity: 0.8;
-  }
-  
-  .botaobuscaprincipal:hover{
-    opacity: 1;
-  }
-  
-  .botaocadastro{
-    height: 30px;
-    width: 530px;
-    background-color: hsl(0, 0%, 51%);
-    float: left;
-    display: flex;
-    justify-content: center;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-size: 16px;
-    font-family: Arial;
-    font-weight: bold;
-    color: #252525;
-    align-items: center;
-    margin: auto;
-    margin-Top: 10px;
-  }
-
-  .botaoproxima{
-    height: 30px;
-    width: 200px;
-    background-color: hsl(0, 0%, 51%);
-    float: left;
-    display: flex;
-    justify-content: center;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-size: 16px;
-    font-family: Arial;
-    font-weight: bold;
-    color: #252525;
-    align-items: center;
-    margin: auto;
-    margin-Top: 0px;
-    opacity: 0.8;
-  }
-
-  .botaoupimagens{
-    height: 30px;
-    width: 635px;
-    background-color: hsl(0, 0%, 51%);
-    float: left;
-    display: flex;
-    justify-content: center;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-size: 16px;
-    font-family: Arial;
-    font-weight: bold;
-    color: #252525;
-    align-items: center;
-    margin: auto;
-    margin-Top: 0px;
-    opacity: 0.8;
-    cursor: pointer;
-  }
-
-  .botaoconcluir{
-    height: 30px;
-    width: 200px;
-    background-color: hsl(0, 0%, 51%);
-    float: left;
-    display: flex;
-    justify-content: center;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-size: 16px;
-    font-family: Arial;
-    font-weight: bold;
-    color: #252525;
-    align-items: center;
-    margin: auto;
-    margin-Top: 0px;
-    opacity: 0.8;
-  }
-
-  .botaoproxima:hover{
-    opacity: 1;
-  }
-  
-  .botaocadastro{
-    opacity: 0.8;
-  }
-  .botaocadastro:hover{
-    opacity: 1;
-  }
-  .botaologin{
-    height: 30px;
-    width: 530px;
-    background-color: #818181;
-    float: right;
-    display: flex;
-    justify-content: center;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-size: 16px;
-    font-family: Arial;
-    font-weight: bold;
-    color: #252525;
-    align-items: center;
-    margin: auto;
-    margin-top: 10px;
-}
-
-.botaologin{
     opacity: 0.8;
 }
 
-.botaologin:hover{
-    opacity: 1;
+.botaobuscaprincipal:hover{
+  opacity: 1;
 }
 
-.proxima{
+.botao{
+  background-color: hsl(0, 0%, 51%);
+  float: left;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: Arial;
+  font-weight: bold;
+  color: #252525;
+  align-items: center;
+  margin: auto;
+  margin-Top: 0px;
   opacity: 0.8;
 }
 
-.proxima:hover{
+.botao:hover{
   opacity:1;
-}
-
-.botaoup{
-  display:none;
 }

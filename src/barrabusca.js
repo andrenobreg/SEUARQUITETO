@@ -1,7 +1,5 @@
 import React from 'react';
 import lupa from './img/lupa.png';
-import database from './database.js';
-
 class Barrabusca extends React.Component {
     constructor(props){
         super(props);
@@ -29,11 +27,11 @@ class Barrabusca extends React.Component {
             }
 
         return (
-            <div className="barrabusca" style={{backgroundColor: "#bbbbbb", height: "55px", width: "1080px", display: "flex", transition: "all 0.3s ease"}}>
-                <div className= "lupa" style={{padding: "8px", float: "left", marginBottom: "1px"}}>
+            <div className="barrabusca" style={{backgroundColor: "#bbbbbb", height: "55px", width: "1080px"}}>
+                <div className= "lupa">
                     <img src={lupa}/>
                 </div>
-                <div className="busca" style={{marginTop: "2x"}}>
+                <div className="busca" style={{marginTop: "2px"}}>
                     <input type="text"  placeholder="BUSCAR..."  id="entradabusca" onKeyUp = {funcaoBusca} onChange={(event) => {this.setState({conteudobusca:event.target.value})}} style={{backgroundColor: "#bbbbbb", height: "50px", width: "900px", fontSize: "20px", fontFamily: "Arial", fontWeight: "bold", color: "#838383", border: "0", boxShadow:"0", outline: "0"}}/>
                 </div>
             </div>

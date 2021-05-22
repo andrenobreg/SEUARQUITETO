@@ -1,12 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
-import Header from './header.js';
-import Footer from './footer.js';
-import logo from './img/logo.png';
-import Buscaarquiteto from './botaobuscaarquiteto.js';
-import Botaocadastro from './botaocadastro.js';
-import Botaologin from './botaologin.js';
 import App from './App.js';
 
 ReactDOM.render(<App/>,document.getElementById('root'));
