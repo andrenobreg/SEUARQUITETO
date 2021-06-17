@@ -2,38 +2,37 @@ import React from 'react';
 import './css/index.css';
 import Header from './header.js';
 import Footer from './footer.js';
-import Barracidades from './barracidades.js';
 import Card from './card.js';
 import Database from './database.js';
-import lupa from './img/lupapq.png';
-import './css/busca.css';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField';
 class Busca extends React.Component {
     constructor(props){
         super(props);
         this.state ={
-            baseusuarios: Database().baseusuarios,
+            baseusuarios: this.shuffle(Database().baseusuarios),
             cidade: "BRASIL",
-            posicao: 0,
+            basecidades: Database().basecidades,
         }
     }
 
-    handleCallback = (childData) =>{
-      this.setState({cidade: childData})
+    handleChange = (valor) =>{
+      this.setState({cidade: valor})
+    }
+
+    shuffle(arr) {
+      var i,
+          j,
+          temp;
+      for (i = arr.length - 1; i > 0; i--) {
+          j = Math.floor(Math.random() * (i + 1));
+          temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+      }
+      return arr;    
     }
     render(){
-        
-      function shuffle(arr) {
-          var i,
-              j,
-              temp;
-          for (i = arr.length - 1; i > 0; i--) {
-              j = Math.floor(Math.random() * (i + 1));
-              temp = arr[i];
-              arr[i] = arr[j];
-              arr[j] = temp;
-          }
-          return arr;    
-        }
 
         function filterFunction() {
             var input, filter, a, i, txtValue;
@@ -50,37 +49,39 @@ class Busca extends React.Component {
             }
         }
 
-        function filtroCidade(valor,cidade, id){
+        function filtroCidade(valor,cidade){
           if(cidade=="BRASIL"){
-            return <a className="resultados">       {Card(valor.img, valor.titulo, valor.desc, valor.classif, id)}       </a>
+            return <a style={{width:"100%", maxWidth:"1040px"}} className="resultados">       {Card(valor.img, valor.titulo, valor.desc, valor.classif, valor.id)}       </a>
           }else{
             if(cidade==valor.cidade){
-              return <a className="resultados">       {Card(valor.img, valor.titulo, valor.desc, valor.classif, id)}       </a>
+              return <a style={{width:"100%", maxWidth:"1040px"}} className="resultados">       {Card(valor.img, valor.titulo, valor.desc, valor.classif, valor.id)}       </a>
             }
           }
         }
-        shuffle(this.state.baseusuarios)
         return (
             <div>
         <html>
+            <body>
             <Header/>
-            <body style={{width:"100%", height: "100%", margin: "0 auto", top: "0", left:"0"}}>
-                <main style={{margin: "0 auto", position: "relative", width: "1080px", height: "100%"}}>
-                <div className="barrabusca" style={{backgroundColor: "#bbbbbb", height: "25px", width: "1080px", display: "flex", transition: "all 0.3s ease"}}>
-                <div className= "lupa" style={{paddingLeft: "2px", float: "left", marginBottom: "1px"}}>
-                    <img src={lupa}/>
-                </div>
-                <div className="busca" style={{paddingTop:"2px"}}>
-                    <input type="text"  placeholder="BUSCAR..."  id="entradabusca" onKeyUp={filterFunction} style={{backgroundColor: "#bbbbbb", height: "17px", width: "600px", fontSize: "16px", fontFamily: "Arial", fontWeight: "bold", color: "#838383", border: "0", boxShadow:"0", outline: "0"}}/>
-                </div>
-            </div>
-                <Barracidades parentCallback = {this.handleCallback}/>
-                    <div style={{backgroundColor: "#f4f4f4", width: "1080px", paddingBottom:"12px", display: "block", textDecoration: "none", height: "calc(100vh - 120px)", overflow: "auto"}}>
-                    {this.state.baseusuarios.map(        (valor) =>                     (filtroCidade(valor, this.state.cidade, this.state.baseusuarios.indexOf(valor)))                 )                        }
+                <main style={{paddingLeft:"20px", paddingRight:"20px", display:"flex", flexDirection:"column", alignItems:"center"}}>
+                <div style={{paddingLeft:"20px", paddingRight:"20px", marginTop:"10px", paddingBottom:"12px", textDecoration: "none", height: "calc(100vh - 120px)", width:"100%", overflow: "auto", display:"flex", flexDirection:"column", alignItems:"center"}}>
+                  <div style={{width:"100%", backgroundColor:"white", display:"flex", flexDirection:"column", alignItems:"center"}}>
+                  <TextField id="entradabusca" label="BUSCAR..." onKeyUp={filterFunction} style={{width:"100%", maxWidth:"1040px"}}/>                
+                  <Autocomplete
+                    id="cidades"
+                    options={this.state.basecidades}
+                    getOptionLabel={(option) => option }
+                    style={{ width: "100%", maxWidth:"1040px"}}
+                    renderInput={(params) => <TextField {...params} label="CIDADE..."/>}
+                    onChange={(event, value) => this.handleChange(value)}
+                  />
+                    </div>
+                    {this.state.baseusuarios.map(        (valor) =>                     (filtroCidade(valor, this.state.cidade))                 )                        }
                     </div>
                 </main>
+                <Footer/>
             </body>
-            <Footer/>
+            
         </html>
     </div>
         )    

@@ -3,11 +3,16 @@ import './css/index.css';
 import Header from './header.js';
 import Footer from './footer.js';
 import Database from './database.js';
-import './css/busca.css';
 import Cardcomentario from './cardcomentario.js';
 import Slider from './slider.js';
 import Stars from './stars.js';
 import Enviar from './img/enviar24px.png';
+import Mensagem from './mensagem.js';
+import SendIcon from '@material-ui/icons/Send';
+import Cardx from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+
 class Exibirperfil extends React.Component {
     constructor(props){
         super(props);
@@ -17,13 +22,27 @@ class Exibirperfil extends React.Component {
             nome: "",
             comentario: "",
             avaliacao: "",
-            posicao: this.props.match.params.id, // posicao do arquiteto a ser exibido no vetor
+            id: this.props.match.params.id, // posicao do arquiteto a ser exibido no vetor
+            index: null,
         }
     }
-    
+
+    buscaIndex(){
+        for(let i=0; i<=this.state.baseusuarios.length; i++){
+            if(i == this.state.baseusuarios.length){
+                alert("Perfil não encontrado :(");
+                //redirecionar para página de perfil não encontrado
+            }else{
+                if(this.state.baseusuarios[i].id == this.state.id){
+                    this.state.index = i;
+                    break;
+                }
+            }
+        }
+    }
 
     inserirCom(){
-        let i = this.state.basecomentarios[this.state.posicao].comentarios.length;
+        let i = this.state.basecomentarios[this.state.index].comentarios.length;
         i = i+1;
         if(this.state.nome==""){
             alert("Preencher nome!");
@@ -37,7 +56,7 @@ class Exibirperfil extends React.Component {
                 alert("Valor mínimo: 1 estrela!");
                 
                }else{
-                this.state.basecomentarios[this.state.posicao].comentarios[i] = {nome: this.state.nome, comentario: this.state.comentario, avaliacao: this.state.avaliacao};
+                this.state.basecomentarios[this.state.index].comentarios[i] = {nome: this.state.nome, comentario: this.state.comentario, avaliacao: this.state.avaliacao};
                 this.setState({nome: this.state.nome})
                 this.setState({comentario: this.state.comentario})
                 this.setState({avaliacao: this.state.avaliacao})
@@ -55,67 +74,81 @@ class Exibirperfil extends React.Component {
       }
 
     render(){
-        return ( //this.state.baseusuarios[this.state.posicao].titulo
+        this.buscaIndex();
+        return (
             <div>
-        <html>
-            <Header/>
-            <body>
-                <main>
-                    <div style={{width:"1080px", height:"calc(100vh - 70px)", backgroundColor:"#f4f4f4", paddingBottom:"12px", position:"absolute", left:"50%", marginLeft:"-540px", overflow:"auto"}}>
-                    <div style={{width: "1040px", height: "150px", backgroundColor: "#e0e0e0", marginLeft: "12px", marginTop: "10px", display: "flex", textDecoration: "none"}}>
-                        <div style={{display: "flex", textAlign: "left"}}>
-            
-                                <div style={{width: "895px", height: "140px", backgroundColor:"#d6d6d6", marginTop: "5px", marginLeft: "5px", display: "block", textDecoration:"none"}}>
-                                    <div style={{width: "885px", height: "30px", marginLeft: "5px", marginTop: "5px", backgroundColor: "#d6d6d6", textDecoration: "none", fontFamily: "Arial", fontSize: "20px", fontWeight: "bold", color: "black"}}>
-                                        {this.state.baseusuarios[this.state.posicao].titulo}
-                                    </div>
-                                    <div style={{width: "885px", height: "95px", marginLeft: "5px", marginTop: "5px", backgroundColor: "#d6d6d6", textDecoration:"none", fontFamily: "Arial", fontSize:"15px", color: "black"}}>
-                                        {this.state.baseusuarios[this.state.posicao].desc}
-                                    </div>
+                <html>
+                    <body>
+                    <Header/>
+                        <main style={{paddingLeft:"20px", paddingRight:"20px", display:"flex", width:"100%"}}>
+                        <div style={{paddingLeft:"20px", paddingRight:"20px", marginTop:"10px", paddingBottom:"12px", paddingTop:"12px", textDecoration: "none", height: "calc(100vh - 120px)", width:"100%", overflow: "auto", display:"flex", flexDirection:"column", alignItems:"center"}}>
+                                <div style={{display:"flex", justifyContent:"center", maxWidth:"1040px", width:"100%"}}>
+                                    <Cardx style={{marginTop:"20px", background:"lightgrey", display:"flex", justifyContent:"center"}}>
+                                        <Grid container spacing={0} >    
+                                            <Grid item md={10} xs={12} style={{paddingLeft:"10px", paddingRight:"10px", paddingTop:"10px", textAlign:"left"}}>
+                                                <p style={{fontFamily:"Arial", fontWeight:"bold", fontSize:"18px", color:"black"}}>{this.state.baseusuarios[this.state.index].titulo}</p>
+                                                <p style={{fontFamily:"Arial", color:"black"}}>{this.state.baseusuarios[this.state.index].desc}Etiam tristique felis eget orci mollis condimentum. Duis hendrerit enim ut quam tempus, nec malesuada velit pulvinar. Vestibulum elementum sem bibendum orci pellentesque, vel ultricies massa mattis. Nam ultrices vitae diam vel lacinia. Nunc non diam enim. Cras ullamcorper risus id ultrices tincidunt. Praesent magna urna, viverra vel diam sed, luctus posuere nunc. Aliquam eget vehicula ipsum, eget sollicitudin libero.</p>
+                                            </Grid>
+
+                                            <Grid item md={2} xs={12} style={{background:"#cfcfcf", display:"flex", alignItems:"center", justifyContent:"center"}}>
+                                                <Stars edit={false} value={this.state.baseusuarios[this.state.index].classif}/>
+                                            </Grid>
+                                        </Grid>
+                                    </Cardx>
                                 </div>
-                                <div style={{paddingLeft:"13px", paddingTop: "45px", width: "130px", height: "140px", backgroundColor: "#d6d6d6", marginTop:"5px", marginLeft: "5px", textDecoration: "none"}}>
-                                    <Stars edit={false} value={this.state.baseusuarios[this.state.posicao].classif}/>
+
+                                <div style={{display:"flex", justifyContent:"center", maxWidth:"1040px", width:"100%", maxHeight:"700px"}}>
+                                    <Cardx style={{marginTop:"20px", background:"lightgrey", display:"flex", justifyContent:"center"}}>
+                                        <Slider width="100%" height="100%"/>
+                                    </Cardx>
                                 </div>
-                            </div>
+
+                                <div style={{display:"flex", justifyContent:"center", maxWidth:"1040px", width:"100%"}}>
+                                    <Cardx style={{marginTop:"20px", background:"lightgrey", display:"flex", flexDirection:"column", justifyContent:"center", width:"100%"}}>
+                                        <div style={{marginTop:"5px", fontFamily:"Arial", fontSize:"15px", color:"gray", fontWeight:"bold"}}>
+                                            {this.state.baseusuarios[this.state.index].site}
+                                        </div>
+                                        <div style={{marginTop:"5px", fontFamily:"Arial", fontSize:"15px", color:"gray", fontWeight:"bold"}}>
+                                            {this.state.baseusuarios[this.state.index].instagram}
+                                        </div>
+                                        <div style={{marginTop:"5px", marginBottom:"5px", fontFamily:"Arial", fontSize:"15px", color:"gray", fontWeight:"bold"}}>
+                                            {this.state.baseusuarios[this.state.index].telefone}
+                                        </div>
+                                        
+                                    </Cardx>
+                                </div>
+
+                                <div style={{display:"flex", justifyContent:"center", maxWidth:"1040px", width:"100%"}}>
+                                <Cardx style={{marginTop:"20px", background:"lightgrey", display:"flex", justifyContent:"center", width:"100%"}}>
+                                    <Grid container spacing={0} >
+
+                                        <Grid item md={9} xs={12} style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", paddingLeft:"10px", paddingRight:"10px", paddingBottom:"30px"}}>
+                                                <TextField onChange={(event) => (this.setState({nome:event.target.value}))} id="input1" label="Seu nome..." style={{width:"100%", maxWidth:"1040px"}}/>
+                                                <TextField onChange={(event) => (this.setState({comentario:event.target.value}))} id="input2" label="Comentário..." style={{width:"100%", maxWidth:"1040px"}}/>
+                                        </Grid>     
+                                        <Grid item md={2} xs={12} style={{background:"#cfcfcf", alignItems:"center", display:"flex", justifyContent:"center"}}>
+                                            <Stars edit={true} value={0} parentCallback = {this.handleCallback}/>
+                                        </Grid>
+
+                                        <Grid item md={1} xs={12} onClick={(event) => {this.inserirCom()}} style={{cursor:"pointer", background:"#c9c9c9", display:"flex", alignItems:"center", justifyContent:"center"}}>
+                                            <SendIcon style={{color:"grey", marginTop:"10px", marginBottom:"10px"}}/>
+                                        </Grid>
+                                    </Grid>
+                                </Cardx>
+                                </div>
+
+                                <div style={{display:"flex", flexDirection:"column", justifyContent:"center", maxWidth:"1040px", width:"100%"}}>
+                                    {this.state.basecomentarios[this.state.index].comentarios.map((valor) => (Cardcomentario(valor.nome, valor.comentario, valor.avaliacao)) )}
+                                </div>
+
+                           
                         </div>
-                        <div style={{width:"1040px", height:"595px", marginLeft:"12px", marginTop:"12px", backgroundColor:"#f2f2f2"}}>
-                        <Slider width="1040px" height="595px"/>
-                        </div>
-                        
-                        <div style={{width:"1040px", height:"120px", marginLeft:"12px", marginTop:"12px", backgroundColor:"#e0e0e0", display:"flex", justifyContent:"center"}}>
-                            <div>
-                            <div style={{height:"25px", marginTop:"11px", fontFamily:"Arial", fontWeight:"bold", fontSize:"20px", color:"#606060"}}>{this.state.baseusuarios[this.state.posicao].site}</div>
-                            <div style={{height:"25px", marginTop:"5px", fontFamily:"Arial", fontWeight:"bold", fontSize:"20px", color:"#606060"}}>{this.state.baseusuarios[this.state.posicao].instagram}</div>
-                            <div style={{height:"25px", marginTop:"5px", fontFamily:"Arial", fontWeight:"bold", fontSize:"20px", color:"#606060"}}>{this.state.baseusuarios[this.state.posicao].telefone}</div>
-                            </div>
-                        </div>
-                        <div style={{width: "1040px", height: "65px", backgroundColor: "#e0e0e0", marginLeft: "12px", marginTop: "10px", display: "flex", textDecoration: "none"}}>
-                            <div style={{display: "flex", textAlign: "left"}}>
-                                
-                                <div style={{width: "840px", height: "65px", backgroundColor:"#e0e0e0", marginTop: "0px", marginLeft: "0px", display: "block", textDecoration:"none"}}>
-                                    <div style={{width: "835px", height: "25px", marginLeft: "5px", marginTop: "5px", backgroundColor: "#d6d6d6", textDecoration: "none", fontFamily: "Arial", fontSize: "16px", fontWeight: "bold", color: "black"}}>
-                                    <input type="text" onChange={(event) => (this.setState({nome:event.target.value}))} id="input1"  placeholder="Seu nome..." style={{marginTop:"0px", backgroundColor:"#d6d6d6", fontSize:"16px", fontFamily:"Arial", fontWeight:"bold", color:"#838383", border:"0", boxShadow:"0", outline:"0", width:"830px", height:"23px", float:"left", marginLeft:"0px"}}/>
-                                    </div>
-                                    <div style={{width: "835px", height: "25px", marginLeft: "5px", marginTop: "5px", backgroundColor: "#d6d6d6", textDecoration:"none", fontFamily: "Arial", fontSize:"16px", color: "black"}}>
-                                    <input type="text" onChange={(event) => (this.setState({comentario:event.target.value}))} id="input2"  placeholder="Deixe um comentário..." style={{marginTop:"0px", backgroundColor:"#d6d6d6", fontSize:"16px", fontFamily:"Arial", fontWeight:"bold", color:"#838383", border:"0", boxShadow:"0", outline:"0", width:"830px", height:"23px", float:"left", marginLeft:"0px"}}/>
-                                    </div>
-                                </div>
-                                <div style={{paddingTop:"7px", paddingLeft:"13px", width: "130px", height: "55px", backgroundColor: "#d6d6d6", marginTop:"5px", marginLeft: "5px", textDecoration: "none"}}>
-                                    <Stars edit={true} value={0} parentCallback = {this.handleCallback}/>
-                                </div>
-                                <div onClick={(event) => {this.inserirCom()}} style={{paddingLeft:"17px", paddingTop:"13px", cursor:"pointer", width: "55px", height: "55px", backgroundColor: "#d6d6d6", marginTop:"5px", marginLeft: "5px", textDecoration: "none"}}>
-                                    <img src={Enviar}/>
-                                </div>
-                            </div>
-                        </div>
-                        {this.state.basecomentarios[this.state.posicao].comentarios.map((valor) => (Cardcomentario(valor.nome, valor.comentario, valor.avaliacao)) )}
-                    </div>
-                
-                </main>
-            </body>
-            <Footer/>
-        </html>
-    </div>
+                        </main>
+                        <Footer/>
+                    </body>
+                    
+                </html>
+            </div>
         )    
     }
 }

@@ -1,16 +1,39 @@
-import logopq from './img/logopq28px.png';
 import React from 'react';
-import './css/index.css';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
+import {ReactComponent as Logo} from './img/logogrande.svg'
 
-const Header = () => {
-    return (
-        <header>
-            <div style={{position:"relative", width: "100%", height: "35px", backgroundColor: "#818181"}}>
-                <Link to="/"><img src={logopq} style={{padding: "3px", float:"left"}}/></Link>
-            </div>
-        </header>
+class Header extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      texto: this.props.texto,
+    }
+  }
+  render(){
+   
+    return(
+      <div>
+          <div style={{flexGrow: 1}}>
+        <AppBar position="static" style={{background:"#818181"}}>
+          <Toolbar variant="dense">
+            <Link to="/">
+
+              <Logo style={{maxHeight:"28px", maxWidth:"150px"}}/>
+
+            </Link>
+            <Typography variant="h6" color="inherit">
+              {this.state.texto}
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </div>
+      </div>
+
     )
-}
+  }
+  }
 
-export default Header;
+export default Header

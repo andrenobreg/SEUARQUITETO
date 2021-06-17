@@ -18,19 +18,16 @@ class Mensagem extends React.Component {
       return (
         <div>
         <html>
-            <Header/>
             <body>
-            <main>
-            
-                <div style={{width:"635px", position:"absolute", left:"50%", marginLeft:"-318px", top:"50%", marginTop:"-79px"}}>
-                    <img src={imagemcadastro}/>
-                    <div style={{marginTop:"40px", fontFamily:"Arial", fontWeight:"bold", fontSize:"30px", color:"#676767"}}>{this.state.mensagem}</div>
-                    
-                </div>
-
-            </main>
-            </body>
+            <Header/>
+                <main style={{width:"100%", height:"calc(100vh - 110px)", marginTop:"6px", paddingLeft:"20px", paddingRight:"20px", display:"flex", justifyContent:"center", alignItems:"center"}}>
+                    <div style={{maxWidth:"635px", width:"100%", maxHeight:"500px"}}>
+                        <img width="100%" src={imagemcadastro}/>
+                        <p style={{marginTop:"20px", fontFamily:"Arial", fontWeight:"bold", fontSize:"30px", color:"#676767"}}>{this.state.mensagem}</p>
+                    </div>
+                </main>
             <Footer/>
+            </body>
         </html>
     </div>
       )    
